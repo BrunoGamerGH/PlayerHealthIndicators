@@ -12,7 +12,7 @@ import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-import org.joml.Matrix4f;
+import net.minecraft.util.math.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -52,7 +52,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
             BufferBuilder vertexConsumer = tessellator.getBuffer();
 
             vertexConsumer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-            RenderSystem.setShader(GameRenderer::getPositionTexProgram);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderTexture(0, DrawableHelper.GUI_ICONS_TEXTURE);
             RenderSystem.enableDepthTest();
 
